@@ -11,6 +11,8 @@ describe('Messages', () => {
         res.body.messages.forEach(m => {
           expect(m).to.have.property('name');
           expect(m).to.have.property('message');
+          expect(m).to.have.property('createdAt');
+          expect(m).to.have.property('updatedAt');
         });
         done();
       });
@@ -26,11 +28,9 @@ it('posts messages', done => {
       .end((err, res) => {
         expect(res.status).to.equal(200);
         expect(res.body.messages).to.be.instanceOf(Object);
-        res.body.messages.forEach(m => {
-          expect(m).to.have.property('id');
-          expect(m).to.have.property('name', data.name);
-          expect(m).to.have.property('message', data.message);
+        expect(res.body.messages).to.have.property('id');
+        expect(res.body.messages).to.have.property('name', data.name);
+        expect(res.body.messages).to.have.property('message', data.message);
         });
         done();
       });
-  });

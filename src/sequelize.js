@@ -21,7 +21,7 @@ db.Message = require('./models/message')(sequelize, Sequelize);
 
 sequelize.sync().then(() => {
   // eslint-disable-next-line no-console
-  console.log('Tables have been created');
+  // console.log('Tables have been created');
 });
 
 module.exports = db;
