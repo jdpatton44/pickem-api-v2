@@ -2,7 +2,6 @@ import db from '../sequelize';
 
 export const addMessage = async (req, res) => {
   const { name, message } = req.body;
-  console.log(name, message);
   try {
     const data = await db.Message.create({
       name,
