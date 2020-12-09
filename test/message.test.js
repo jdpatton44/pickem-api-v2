@@ -20,17 +20,17 @@ describe('Messages', () => {
 });
 
 it('posts messages', done => {
-    const data = { name: 'some name', message: 'new message' };
-    server
-      .post(`${BASE_URL}/messages`)
-      .send(data)
-      .expect(200)
-      .end((err, res) => {
-        expect(res.status).to.equal(200);
-        expect(res.body.messages).to.be.instanceOf(Object);
-        expect(res.body.messages).to.have.property('id');
-        expect(res.body.messages).to.have.property('name', data.name);
-        expect(res.body.messages).to.have.property('message', data.message);
-        });
-        done();
-      });
+  const data = { name: 'some name', message: 'new message' };
+  server
+    .post(`${BASE_URL}/messages`)
+    .send(data)
+    .expect(200)
+    .end((err, res) => {
+      expect(res.status).to.equal(200);
+      expect(res.body.messages).to.be.instanceOf(Object);
+      expect(res.body.messages).to.have.property('id');
+      expect(res.body.messages).to.have.property('name', data.name);
+      expect(res.body.messages).to.have.property('message', data.message);
+    });
+  done();
+});
