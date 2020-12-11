@@ -39,7 +39,7 @@ describe('Bets', () => {
       .get(`${BASE_URL}/getUserBets/1`)
       .expect(200)
       .end((err, res) => {
-        // expect(res.body.bets).to.be.instanceOf(Array);
+        expect(res.body.bets).to.be.instanceOf(Array);
         res.body.bets.forEach(b => {
           expect(b).to.have.property('id');
           expect(b).to.have.property('game');

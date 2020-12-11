@@ -25,6 +25,7 @@ describe('Messages', () => {
       .send(data)
       .expect(200)
       .end((err, res) => {
+        expect(res.status).to.equal(200);
         expect(res.body.messages).to.be.instanceOf(Object);
         expect(res.body.messages).to.have.property('id');
         expect(res.body.messages).to.have.property('name', data.name);
