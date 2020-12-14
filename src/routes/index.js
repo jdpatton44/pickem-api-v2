@@ -1,7 +1,7 @@
 import express from 'express';
 import { testEnvironmentVariable } from '../settings';
 import { addMessage, messagesPage } from '../controllers/messages';
-import { updateScores } from '../controllers/games';
+import { loadGames, updateScores } from '../controllers/games';
 import { getUserBets, placeBet, setLine } from '../controllers/bets';
 
 const indexRouter = express.Router();
@@ -19,5 +19,6 @@ indexRouter.post('/setLine', setLine);
 
 // Games
 indexRouter.get('/updateScores', updateScores);
+indexRouter.get('/loadGames', loadGames);
 
 export default indexRouter;
